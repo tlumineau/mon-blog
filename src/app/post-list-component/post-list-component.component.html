@@ -1,0 +1,10 @@
+<!--Blog IHM-->
+<ul class="list-group">
+    <h3>Posts :</h3>
+    <app-post *ngFor="let post of postsList"
+      [postTitle]= "post.title"
+      [postContent]= "post.content"
+      [postLoveIts]= "post.loveIts"
+      [postCreatedAt]= "post.created_at"
+    ></app-post>
+</ul>
