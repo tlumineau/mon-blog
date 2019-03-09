@@ -22,13 +22,13 @@ export class AppComponent {
     this.post1.title = 'Mon premier post';
     this.post1.content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
     this.post1.loveIts = 1;
-    this.post1.created_at = new Date();
+    this.post1.created_at = new Date('2019-03-01');
     // Création du Post 2
     this.post2 = new Post();
     this.post2.title = 'Mon deuxième post';
     this.post2.content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt';
     this.post2.loveIts = -1;
-    this.post2.created_at = new Date();
+    this.post2.created_at = new Date('2019-03-04');
     // Création du Post 3
     this.post3 = new Post();
     this.post3.title = 'Encore un post';
