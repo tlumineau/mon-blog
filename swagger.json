@@ -1,0 +1,3242 @@
+﻿{
+  "x-generator": "NSwag v13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "HALL - HALL back WebApi",
+    "description": "All Back WebApi of the HALL project (Used by the Hall front end Angular application)",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://hall-xx.cm-cic.fr/hall_back"
+    },
+    {
+      "url": "http://hall-xx.cm-cic.fr/hall_back"
+    }
+  ],
+  "paths": {
+    "/api/v1/block/modifymenublock/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Block Controller TEST"
+        ],
+        "summary": "PostModifyMenuBlock",
+        "description": "Update a block for type 'Menu'<br><br>\r\n                                        Optional query parameters sample : <br>\r\n                                        http://webs-xx.cm-cic.fr/hall_team001/v1/indicators?culture=nl-BE <br>\r\n                                        or<br>\r\n                                        http://webs-xx.cm-cic.fr/hall_team001/v1/indicators/nl-BE for a Rest valid syntax<br><br>\r\n                                        NB : The parameters are <strong>optionals and not required</strong> as indicated in the following description\r\n                    \r\n        ",
+        "operationId": "Block_PostModifyMenuBlock",
+        "parameters": [
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "block",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Block"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Modification d'un block Menu.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Modification d'un block Menu.",
+                "schema": {
+                  "$ref": "#/components/schemas/Void"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          },
+          "409": {
+            "description": "A business error has be throwed during the request treatment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "There is a internal server error not planned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/block/ordertile": {
+      "post": {
+        "tags": [
+          "Block Controller TEST"
+        ],
+        "operationId": "Block_PostModifyTileOrderByBlock",
+        "requestBody": {
+          "x-name": "blockList",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Block"
+                }
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Modifie l'ordre des tuiles d'une liste de blocs.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Modifie l'ordre des tuiles d'une liste de blocs.",
+                "schema": {
+                  "$ref": "#/components/schemas/Void"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          },
+          "409": {
+            "description": "A business error has be throwed during the request treatment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "There is a internal server error not planned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/block": {
+      "delete": {
+        "tags": [
+          "Block Controller TEST"
+        ],
+        "operationId": "Block_DeleteBlock",
+        "requestBody": {
+          "x-name": "tile",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tile"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Supprime une block.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la suppression.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A business error has be throwed during the request treatment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "There is a internal server error not planned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/block/{tileId}": {
+      "delete": {
+        "tags": [
+          "Block Controller TEST"
+        ],
+        "operationId": "Block_DeleteBlock2",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Supprime un block.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la suppression.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A business error has be throwed during the request treatment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "There is a internal server error not planned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Exception"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hall/edit/{isCreate}/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Hall"
+        ],
+        "operationId": "Hall_PostEditHall",
+        "parameters": [
+          {
+            "name": "isCreate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "hall",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Hall"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Edition ou création du hall courant.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Edition ou création du hall courant.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/hall/configuration/{roleId}/{isPartial}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "operationId": "Hall_GetIntentionConfigurationByRoleId",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "isPartial",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la configuration d'un rôle.\nor\nRetourne un object Hall contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hall"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la configuration d'un rôle.",
+                "schema": {
+                  "$ref": "#/components/schemas/Hall"
+                }
+              },
+              {
+                "description": "Retourne un object Hall contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/Hall"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/hall/configuration/tile/{tileId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "operationId": "Hall_GetIntentionConfigurationByTile",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la configuration d'une tuile.\nor\nRetourne un object tuile contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la configuration d'une tuile.",
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              },
+              {
+                "description": "Retourne un object tuile contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/hall/configuration/block/{tabId}/{blockId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "operationId": "Hall_GetIntentionConfigurationByBlock",
+        "parameters": [
+          {
+            "name": "tabId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "blockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la configuration d'un block.\nor\nRetourne un object tuile contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la configuration d'un block.",
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              },
+              {
+                "description": "Retourne un object tuile contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/hall/list/{hallId}/{hallLabel}/{hallDescription}/{hallCreatorPersoId}/{hallCreatorServiceCode}/{roleId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "operationId": "Hall_GetHallList",
+        "parameters": [
+          {
+            "name": "hallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "hallLabel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "hallDescription",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "hallCreatorPersoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "hallCreatorServiceCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 5
+          },
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 6
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 7
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 8
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste des HALL.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la liste des HALL.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              }
+            ]
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors du traitement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Hall"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/intention/{editMode}/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Intention"
+        ],
+        "operationId": "Intention_CreateIntention",
+        "parameters": [
+          {
+            "name": "editMode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "intention",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Intention"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Créé ou modifie une intention.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Créé ou modifie une intention.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/intention": {
+      "delete": {
+        "tags": [
+          "Intention"
+        ],
+        "operationId": "Intention_DeleteIntention",
+        "requestBody": {
+          "x-name": "intention",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Intention"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Supprime l'intention passée dans le body.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Supprime l'intention passée dans le body.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/intention/{intentionId}": {
+      "delete": {
+        "tags": [
+          "Intention"
+        ],
+        "operationId": "Intention_DeleteIntention2",
+        "parameters": [
+          {
+            "name": "intentionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Supprime l'intention à partir de son Id.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Supprime l'intention à partir de son Id.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/intentionTab/updateTab": {
+      "post": {
+        "tags": [
+          "IntentionTab"
+        ],
+        "operationId": "IntentionTab_PostUpdateIntentionTab",
+        "requestBody": {
+          "x-name": "parameters",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ImportIntentionTabParameters"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Mise à jour d'un onglet intention (import).\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Mise à jour d'un onglet intention (import).",
+                "schema": {
+                  "$ref": "#/components/schemas/Void"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/list/{isSearch}/{roleId}/{tribeId}/{hallId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_GetRoleListAll",
+        "parameters": [
+          {
+            "name": "isSearch",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "tribeId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "hallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 6
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste des roles existants à partir d'une recherche par critères si renseignés.\nor\nRetourne une liste d'un object role contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la liste des roles existants à partir d'une recherche par critères si renseignés.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              },
+              {
+                "description": "Retourne une liste d'un object role contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/listV2/{roleId}/{roleLabel}/{roleDescription}/{roleCreatorPersoId}/{roleCreatorServiceCode}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_GetRoleList",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "roleLabel",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "roleDescription",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "roleCreatorPersoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "roleCreatorServiceCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 5
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 6
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 7
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste des roles existants à partir d'une recherche par critères si renseignés.\nor\nRetourne une liste d'un object role contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne la liste des roles existants à partir d'une recherche par critères si renseignés.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              },
+              {
+                "description": "Retourne une liste d'un object role contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/{roleId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_GetRoleById",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne un rôle par son identifiant.\nor\nRetourne un object role contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Retourne un rôle par son identifiant.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              },
+              {
+                "description": "Retourne un object role contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/edit/{isDuplicate}/{originRoleId}/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_PostEditRole",
+        "parameters": [
+          {
+            "name": "isDuplicate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "originRoleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 5
+          }
+        ],
+        "requestBody": {
+          "x-name": "role",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Edition du rôle courant ou création par duplication d'un rôle existant.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Edition du rôle courant ou création par duplication d'un rôle existant.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/edit/{isCreate}/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_PostEditRoleV2",
+        "parameters": [
+          {
+            "name": "isCreate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "role",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Role"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Edition ou création du rôle courant.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Edition ou création du rôle courant.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/role/delete/{roleId}": {
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_DeleteRole",
+        "parameters": [
+          {
+            "name": "roleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Suppression du rôle courant.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Suppression du rôle courant.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/tile/modifyproperties/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_PostTileProperties",
+        "parameters": [
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "tile",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tile"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Modifie les propriétés de la tuile.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Modifie les propriétés de la tuile.",
+                "schema": {
+                  "$ref": "#/components/schemas/Void"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/tile/{tileId}/applinks": {
+      "get": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_GetAppLinksByTile",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste de liens applicatifs de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de lecture des liens applicatifs de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors du traitement de lecture des liens applicatifs de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tile/{tileId}/pixis-applink": {
+      "get": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_GetPixisAppLinkByTile",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne le lien applicatif du code objet de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors du traitement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tile/{tileId}/orderintention": {
+      "post": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_PostModifyIntentionOrderByTile",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "intentionList",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Intention"
+                }
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Modifie de l'ordre des intentions d'une tuile.\nor\nRetourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Modifie de l'ordre des intentions d'une tuile.",
+                "schema": {
+                  "$ref": "#/components/schemas/Void"
+                }
+              },
+              {
+                "description": "Retourne une BusinessError contenant l'erreur à interpréter côté DevBooster.",
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessError"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/api/v1/tile/{editMode}/{languageCode}/{countryCode}": {
+      "post": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_PostTile",
+        "parameters": [
+          {
+            "name": "editMode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "tile",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tile"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Créé ou modifie une tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la création ou modification de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tile": {
+      "delete": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_DeleteTile",
+        "requestBody": {
+          "x-name": "tile",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tile"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Supprime une tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la suppression de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tile/{tileId}": {
+      "delete": {
+        "tags": [
+          "Tile"
+        ],
+        "operationId": "Tile_DeleteTile2",
+        "parameters": [
+          {
+            "name": "tileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Supprime une tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la suppression de la tuile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/configuration/{cultureInfo}/{role}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetRoleConfiguration",
+        "parameters": [
+          {
+            "name": "cultureInfo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la configuration de l'utilisateur courant",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hall"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de la récupération de la configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la récupération de la configuration.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/bookmarks/delete/{blockId}/{widgetId}/{appLinkId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_DeleteBookmarkAppLink",
+        "parameters": [
+          {
+            "name": "blockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "widgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "appLinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "supprime le lien des préférences de l'utilisateur courant.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de la suppression du lien.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la suppression du lien.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/bookmarks/add/{blockId}/{widgetId}": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_AddBookmarkAppLink",
+        "parameters": [
+          {
+            "name": "blockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "widgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "appLink",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppLink"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "ajoute le lien dans le widget des préférences de l'utilisateur courant.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de l'ajout du lien.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de l'ajout du lien.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/user/widget/{blockId}/{widgetId}/applinks": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetWidgetApplinks",
+        "parameters": [
+          {
+            "name": "blockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "widgetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne les liens applicatifs d'un widget préférence de l'utilisateur courant.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de la lecture des liens du widget préférence.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la lecture des liens du widget préférence.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/block/{id}/{type}/data": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_GetBlockData",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/BlockType"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne les données du bloc Informations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InformationsItem"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de la récupération des données du bloc.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la récupération des données du bloc.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/mnemo/{mnemo}": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_CheckMnemonique",
+        "parameters": [
+          {
+            "name": "mnemo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Le mnémonique existe",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans l'appel du catalogue de services pour le check du mnémonique.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de l'appel du catalogue de services pour le check du mnémonique.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/HelloWorld": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_HelloWord",
+        "responses": {
+          "200": {
+            "description": "L'api fonctionne.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/applinks/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_GetAppLinks",
+        "parameters": [
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne la liste de tous les applinks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AppLink"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de la récupération des applinks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors de la récupération des applinks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/applink/{applinkId}/{languageCode}/{countryCode}": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_GetAppLinkById",
+        "parameters": [
+          {
+            "name": "applinkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "languageCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "countryCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne le lien applicatif à partir de son Id.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erreur de validation de la requête.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Erreur métier dans le traitement de lecture du lien applicatif.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors du traitement de lecture du lien applicatif.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/banner_url": {
+      "get": {
+        "tags": [
+          "WebApi"
+        ],
+        "operationId": "WebApi_GetBannerUrl",
+        "responses": {
+          "200": {
+            "description": "Retourne l'url du bandeau à charger.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppLink"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Erreur lors du traitement de récupération du lien du bandeau.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Void": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BusinessError": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "errorCode": {
+            "$ref": "#/components/schemas/HallBusinessErrorCodes"
+          },
+          "message": {
+            "type": "string"
+          },
+          "messageApp": {
+            "type": "string"
+          },
+          "httpErrorCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          }
+        }
+      },
+      "HallBusinessErrorCodes": {
+        "type": "integer",
+        "description": "0 = Ok\n1 = NotFound\n2 = RoleNotGranted\n3 = TribeError\n4 = ConfigurationError\n5 = BusinessError",
+        "x-enumNames": [
+          "Ok",
+          "NotFound",
+          "RoleNotGranted",
+          "TribeError",
+          "ConfigurationError",
+          "BusinessError"
+        ],
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "HttpStatusCode": {
+        "type": "integer",
+        "description": "100 = Continue\n101 = SwitchingProtocols\n200 = OK\n201 = Created\n202 = Accepted\n203 = NonAuthoritativeInformation\n204 = NoContent\n205 = ResetContent\n206 = PartialContent\n300 = MultipleChoices\n300 = Ambiguous\n301 = MovedPermanently\n301 = Moved\n302 = Found\n302 = Redirect\n303 = SeeOther\n303 = RedirectMethod\n304 = NotModified\n305 = UseProxy\n306 = Unused\n307 = TemporaryRedirect\n307 = RedirectKeepVerb\n400 = BadRequest\n401 = Unauthorized\n402 = PaymentRequired\n403 = Forbidden\n404 = NotFound\n405 = MethodNotAllowed\n406 = NotAcceptable\n407 = ProxyAuthenticationRequired\n408 = RequestTimeout\n409 = Conflict\n410 = Gone\n411 = LengthRequired\n412 = PreconditionFailed\n413 = RequestEntityTooLarge\n414 = RequestUriTooLong\n415 = UnsupportedMediaType\n416 = RequestedRangeNotSatisfiable\n417 = ExpectationFailed\n426 = UpgradeRequired\n500 = InternalServerError\n501 = NotImplemented\n502 = BadGateway\n503 = ServiceUnavailable\n504 = GatewayTimeout\n505 = HttpVersionNotSupported",
+        "x-enumNames": [
+          "Continue",
+          "SwitchingProtocols",
+          "OK",
+          "Created",
+          "Accepted",
+          "NonAuthoritativeInformation",
+          "NoContent",
+          "ResetContent",
+          "PartialContent",
+          "MultipleChoices",
+          "Ambiguous",
+          "MovedPermanently",
+          "Moved",
+          "Found",
+          "Redirect",
+          "SeeOther",
+          "RedirectMethod",
+          "NotModified",
+          "UseProxy",
+          "Unused",
+          "TemporaryRedirect",
+          "RedirectKeepVerb",
+          "BadRequest",
+          "Unauthorized",
+          "PaymentRequired",
+          "Forbidden",
+          "NotFound",
+          "MethodNotAllowed",
+          "NotAcceptable",
+          "ProxyAuthenticationRequired",
+          "RequestTimeout",
+          "Conflict",
+          "Gone",
+          "LengthRequired",
+          "PreconditionFailed",
+          "RequestEntityTooLarge",
+          "RequestUriTooLong",
+          "UnsupportedMediaType",
+          "RequestedRangeNotSatisfiable",
+          "ExpectationFailed",
+          "UpgradeRequired",
+          "InternalServerError",
+          "NotImplemented",
+          "BadGateway",
+          "ServiceUnavailable",
+          "GatewayTimeout",
+          "HttpVersionNotSupported"
+        ],
+        "enum": [
+          100,
+          101,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          300,
+          300,
+          301,
+          301,
+          302,
+          302,
+          303,
+          303,
+          304,
+          305,
+          306,
+          307,
+          307,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          426,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505
+        ]
+      },
+      "Exception": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Message": {
+            "type": "string"
+          },
+          "InnerException": {
+            "$ref": "#/components/schemas/Exception"
+          },
+          "StackTrace": {
+            "type": "string"
+          },
+          "Source": {
+            "type": "string"
+          }
+        }
+      },
+      "Block": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "blockId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "tabId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "blockType": {
+                "$ref": "#/components/schemas/BlockType"
+              },
+              "blockOrder": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "columnNb": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "blockLabel": {
+                "type": "string"
+              },
+              "tiles": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tile"
+                }
+              },
+              "widgets": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Widget"
+                }
+              },
+              "informations": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Information"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BlockType": {
+        "type": "integer",
+        "description": "1 = APPLICATION\n2 = INFORMATION\n3 = MENU",
+        "x-enumNames": [
+          "APPLICATION",
+          "INFORMATION",
+          "MENU"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "Tile": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "tileId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "deletable": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "movable": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "tileOrder": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "tileLabel": {
+                "type": "string"
+              },
+              "icon": {
+                "type": "string"
+              },
+              "isFullWidth": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "type": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TileType"
+                  }
+                ]
+              },
+              "pixisObjectCode": {
+                "type": "string"
+              },
+              "appLinks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppLink"
+                }
+              },
+              "indicators": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IndicatorTile"
+                }
+              },
+              "intentions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Intention"
+                }
+              },
+              "blockId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "nbColumn": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "nbLine": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "theme": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "delay": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TileType": {
+        "type": "integer",
+        "description": "1 = INDICATOR\n2 = INTENTION\n3 = LINK",
+        "x-enumNames": [
+          "INDICATOR",
+          "INTENTION",
+          "LINK"
+        ],
+        "enum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "AppLink": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "appLinkId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "mnemo": {
+                "type": "string"
+              },
+              "appLinkOrder": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "appLinkLabel": {
+                "type": "string"
+              },
+              "widgetId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "tileId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "intentionId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      },
+      "ErrorDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "BusinessError": {
+            "$ref": "#/components/schemas/BusinessError"
+          }
+        }
+      },
+      "IndicatorTile": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "indicatorId": {
+            "type": "string",
+            "format": "guid"
+          },
+          "indicatorOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tileId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "appLink": {
+            "$ref": "#/components/schemas/AppLink"
+          }
+        }
+      },
+      "Intention": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "intentionId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "intentionLabel": {
+                "type": "string"
+              },
+              "tileId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "intentionOrder": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "appLinks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/AppLink"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Widget": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "widgetId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "widgetLabel": {
+            "type": "string"
+          },
+          "deletable": {
+            "type": "boolean"
+          },
+          "movable": {
+            "type": "boolean"
+          },
+          "appLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppLink"
+            }
+          },
+          "widgetOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/WidgetType"
+          },
+          "blockId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "icon": {
+            "type": "string"
+          }
+        }
+      },
+      "WidgetType": {
+        "type": "integer",
+        "description": "1 = CAC\n2 = WEATHER\n3 = SCHEDULE\n4 = LINK\n5 = CONTACT",
+        "x-enumNames": [
+          "CAC",
+          "WEATHER",
+          "SCHEDULE",
+          "LINK",
+          "CONTACT"
+        ],
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "Information": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "informationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informationSourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informationOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informationSourceLabel": {
+            "type": "string"
+          },
+          "informationSource": {
+            "type": "string"
+          },
+          "blockId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "carousel": {
+            "$ref": "#/components/schemas/Carousel"
+          }
+        }
+      },
+      "Carousel": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "carouselId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informationSourceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "informationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orientation": {
+            "type": "string"
+          },
+          "itemBySlider": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "displayImages": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Hall": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "hallId": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "hallLabel": {
+                "type": "string"
+              },
+              "hallDescription": {
+                "type": "string"
+              },
+              "creator": {
+                "type": "string"
+              },
+              "creatorServiceCode": {
+                "type": "string"
+              },
+              "creationDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "modificationDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "role": {
+                "type": "string"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Role"
+                }
+              },
+              "tabs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Tab"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Role": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ErrorDto"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "roleId": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "tribuId": {
+                "type": "string"
+              },
+              "TribuLabel": {
+                "type": "string"
+              },
+              "hallId": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "hallLabel": {
+                "type": "string"
+              },
+              "creatorPersoId": {
+                "type": "string"
+              },
+              "creatorServiceCode": {
+                "type": "string"
+              },
+              "creationDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "modificationDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "Tab": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "blocks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Block"
+            }
+          },
+          "tabId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parentTabId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tabOrder": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "openedLinksTabId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "tabLabel": {
+            "type": "string"
+          }
+        }
+      },
+      "ImportIntentionTabParameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tabs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tab"
+            }
+          },
+          "parentTabId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "singleFirstLevelTab": {
+            "type": "boolean"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "countryCode": {
+            "type": "string"
+          }
+        }
+      },
+      "InformationsItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "link": {
+            "type": "string"
+          },
+          "img": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Block Controller TEST",
+      "description": "Describe all methods that must be implemented by business development teams in their WebApi controller<br> Namespace : <strong>Cdm.Hins.Webs.Pull_Team001.Controllers.WebApi</strong>",
+      "externalDocs": {
+        "description": "Here, a Visual Studio sample solution to start your implementation.",
+        "url": "http://xcmci072.formation.cm-cic.fr/hall_hins/Cdm.Hins.Webs.Pull_Team001.zip"
+      }
+    }
+  ]
+}
